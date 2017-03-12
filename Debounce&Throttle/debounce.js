@@ -28,5 +28,5 @@ function foo() {
 }
 
 // 在事件触发的两秒后，我们包裹在debounce中的函数才会被触发
-let elem = document.getElementById('container');
+var elem = document.getElementById('container');
 elem.addEventListener('scroll', debounce(foo, 2000));
