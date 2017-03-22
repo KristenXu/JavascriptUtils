@@ -27,6 +27,6 @@ function foo() {
     console.log('You are scrolling!');
 }
 
-// 在事件触发的两秒后，我们包裹在debounce中的函数才会被触发
 var elem = document.getElementById('container');
 elem.addEventListener('scroll', throttle(foo, 2000));
+// 有人形象的把上面说的事件形象的比喻成机关枪的扫射，throttle就是机关枪的扳机，你不放扳机，它就一直扫射。

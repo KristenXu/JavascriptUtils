@@ -30,3 +30,4 @@ function foo() {
 // 在事件触发的两秒后，我们包裹在debounce中的函数才会被触发
 var elem = document.getElementById('container');
 elem.addEventListener('scroll', debounce(foo, 2000));
+// 有人形象的把上面说的事件形象的比喻成按压弹簧，debounce就是你的手，你不放手，弹簧就不会弹起来。
