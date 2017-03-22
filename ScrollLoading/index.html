@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin:0px;padding:0px;}
+        /*粗暴地清除默认边距*/
+        body{
+            font-family:"Arial Microsoft Yahei";
+            font-size:16px;
+            font-weight:bold;
+        }
+        .header{
+            width:100%;height:500px;
+            background-color: #10E668;
+        }
+        .banner{
+            width:100%;height:600px;
+            background:#F7CF3B;
+            text-align: center;
+            margin:30px auto;
+            overflow: hidden;
+
+        }
+        .banner h1{
+            font-size:30px;
+            padding:50px 0;
+            position:relative;
+            top:400px;
+            transition:all 0.3s 0.3s linear;
+        }
+        .banner p{
+            font-size:18px;
+            width:80%;
+            margin:30px auto;
+            line-height: 1.8em;
+            text-align: left;
+            text-indent:2em;
+            position:relative;
+            top:400px;
+            transition:all 0.5s 0.5s linear;
+        }
+        /*动画类*/
+        .banner.on h1,.banner.on p{
+            top:0px;
+        }
+
+        .con{
+            width:80%;height:720px;
+            background:#508E5A;
+            margin:20px auto;
+            overflow: hidden;
+        }
+        .con img{
+            width:400px;height:auto;
+        }
+        .con_l{
+            float: left;
+            position:relative;
+            left:-400px;
+            transition:all 0.3s 0.3s linear;
+        }
+        .con_2{
+            float: right;
+            position:relative;
+            right:-400px;
+            transition:all 0.3s 0.3s linear;
+        }
+        /*动画类*/
+        .con.on .con_l{
+            left:0;
+        }
+        .con.on .con_2{
+            right:0;
+        }
+        .news{
+            width:100%;height:600px;
+            background:#CA3400;
+        }
+        .footer{
+            width:100%;height:600px;
+            background-color: #ccc;
+        }
+    </style>
+    <script src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+    <script>
+        $(function(){
+            /*version 0.1.0 函数封装*/
+            //向下滚动时
+            function addClass(ele){
+                var winH=$(window).height()*0.5;//可视窗口的高度的一半，更改0.5可以调整滚动到底部、中部、顶部时候开始加载
+                var top=$(window).scrollTop();//可视窗口的滚动高度
+                var ele_t=$(ele).offset().top;//内容区的top
+                var ele_h=$(ele).height();//内容区的高
+
+                //判断条件，看草稿图1！
+                if(top<ele_t-winH){
+                    $(ele).removeClass('on');
+                }else if((top>ele_t-winH)&&(top<ele_t+ele_h)){
+                    $(ele).addClass('on');
+                }else{
+                    $(ele).removeClass('on');
+                }
+            }
+            //向上滚动时，看草稿图2！
+            function addClass2(ele){
+                var winH=$(window).height()*0.5;//更改0.5可以调整滚动到底部、中部、顶部时候开始加载
+                var top=$(window).scrollTop();//可视窗口的滚动高度
+                var ele_t=$(ele).offset().top;//内容区的top
+                var ele_h=$(ele).height();//内容区的高
+
+                //判断条件
+                if(top>ele_t+ele_h){
+                    $(ele).removeClass('on');
+                }else if((top<ele_t+ele_h)&&(top>ele_t-winH*2)){
+                    $(ele).addClass('on');
+                }else{
+                    $(ele).removeClass('on');
+                }
+            }
+            //获取前一次的滚动高度（这里是第一次）
+            var firstTop=$(window).scrollTop();
+
+            $(window).scroll(function(){
+                //每次滚动重新获取滚动高度
+                var lastTop=$(this).scrollTop();
+                //后一次滚动高度大于前一次滚动高，说明向下滚动，否则想上滚动！
+                if(lastTop>firstTop){
+                    //加载对应的内容区域
+                    addClass('.banner');
+                    addClass('.con');
+                }else{
+                    addClass2('.banner');
+                    addClass2('.con');
+                }
+                //每次都将后一次的滚动高度赋值给前一次的滚动高度
+                firstTop=lastTop;
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="header">
+    实现思路：先布局好静态布局，再使用hover模拟动画行为，再改为类名on等用js进行控制！
+</div>
+<div class="banner">
+    <h1>前端开发</h1>
+    <p>
+        Web前端开发是从网页制作演变而来的，名称上有很明显的时代特征。在互联网的演化进程中，
+        网页制作是Web1.0时代的产物，那时网站的主要内容都是静态的，用户使用网站的行为也以
+        浏览为主。
+    </p>
+</div>
+<div class="con">
+    <div class="con_l"><img src="images/1.jpg" alt="aa" /></div>
+    <div class="con_2"><img src="images/2.jpg" alt="11" /></div>
+</div>
+<div class="news">news</div>
+<div class="footer">footer</div>
+</body>
+</html>
