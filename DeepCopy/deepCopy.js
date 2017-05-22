@@ -7,6 +7,9 @@ var deepCopy = function (obj) {
 
   var copy = cons();
   for (var key in obj) {
+    if(!obj.hasOwnProperty(key)){
+      return
+    }
     if (typeof obj[key] === "object") {
       copy[key] = deepCopy(obj[key]);
     } else {
