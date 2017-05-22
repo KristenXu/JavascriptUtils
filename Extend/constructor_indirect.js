@@ -1,4 +1,3 @@
-var Car = require('./car')
 function extend(Child, Parent) {
 
     var F = function(){};
@@ -11,6 +10,11 @@ function Audi(name,color){
     this.name = name;
     this.color = color;
 }
+
+
+function Car(){
+}
+Car.prototype.category = "汽车"
 
 extend(Audi, Car);
 var audi1 = new Audi("A6","白色");
