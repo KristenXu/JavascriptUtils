@@ -30,3 +30,6 @@ function foo() {
 var elem = document.getElementById('container');
 elem.addEventListener('scroll', throttle(foo, 2000));
 // 有人形象的把上面说的事件形象的比喻成机关枪的扫射，throttle就是机关枪的扳机，你不放扳机，它就一直扫射。
+/**
+ * throttle 的概念理解起来更容易，就是固定函数执行的速率，即所谓的“节流”。正常情况下，mousemove 的监听函数可能会每 20ms（假设）执行一次，如果设置 200ms 的“节流”，那么它就会每 200ms 执行一次。比如在 1s 的时间段内，正常的监听函数可能会执行 50（1000/20） 次，“节流” 200ms 后则会执行 5（1000/200） 次。
+ */
