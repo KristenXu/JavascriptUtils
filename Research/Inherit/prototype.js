@@ -30,6 +30,7 @@ var audiA4 = new Audi()
 var audiA4Proto = audiA4.__proto__
 
 var audiPrototypeConstructor = Audi.prototype.constructor
+console.log('Audi.prototype.__proto__ === Car.prototype', Audi.prototype.__proto__ === Car.prototype)
 console.log('audiA4Proto', audiA4Proto)
 console.log('audiPrototypeConstructor', audiPrototypeConstructor)
 console.log('audiA4 constructor', audiA4.constructor === audiPrototypeConstructor)
