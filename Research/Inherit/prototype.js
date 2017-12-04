@@ -1,6 +1,7 @@
 function Car(){
     this.name = 'car';
     this.price = 1000;
+    this.carOnly = 'notCarOnly';
 }
 
 Car.prototype.getName = function () {
@@ -30,6 +31,8 @@ var audiA4 = new Audi()
 var audiA4Proto = audiA4.__proto__
 
 var audiPrototypeConstructor = Audi.prototype.constructor
+
+console.log('Audi.prototype.carOnly', Audi.prototype.carOnly)
 console.log('Audi.prototype.__proto__ === Car.prototype', Audi.prototype.__proto__ === Car.prototype)
 console.log('audiA4Proto', audiA4Proto)
 console.log('audiPrototypeConstructor', audiPrototypeConstructor)
