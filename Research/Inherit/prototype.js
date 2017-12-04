@@ -1,7 +1,9 @@
+var Plane = require('./plane')
 function Car(){
     this.name = 'car';
     this.price = 1000;
     this.carOnly = 'notCarOnly';
+    this.colors = ['red', 'yellow', 'blue'];
 }
 
 Car.prototype.getName = function () {
@@ -46,3 +48,20 @@ console.log('Audi [[prototype]]', Audi.prototype.__proto__)
 
 console.log('audiA4 prototype', Object.getPrototypeOf(audiA4))
 console.log('audiA4 city', audiA4.city)
+
+audiA4.colors.push('black')
+var audiA5 = new Audi();
+console.log('audiA5.colors', audiA5.colors)
+
+
+function SubPlane() {
+
+}
+
+SubPlane.prototype = new Plane()
+
+var subInstance1 = new SubPlane();
+subInstance1.colors.push('black')
+
+var subInstance2 = new SubPlane();
+console.log('subInstance2.colors', subInstance2.colors)
