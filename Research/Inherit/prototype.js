@@ -19,7 +19,7 @@ function Audi() {
 }
 
 Audi.prototype = new Car()
-
+//Audi的原型指向了Car的原型，而Car.prototype的constructor属性指向Car，这里手动设回Audi
 Audi.prototype.constructor = Audi
 
 Audi.prototype.getName = function () {
@@ -37,7 +37,6 @@ console.log('Audi.prototype.__proto__ === Car.prototype', Audi.prototype.__proto
 console.log('audiA4Proto', audiA4Proto)
 console.log('audiPrototypeConstructor', audiPrototypeConstructor)
 console.log('audiA4 constructor', audiA4.constructor === audiPrototypeConstructor)
-console.log('audiA4 name', audiA4.getName())
 console.log('audiA4 name', audiA4.getName())
 console.log('audiA4 instanceof Car', audiA4 instanceof Car)
 
