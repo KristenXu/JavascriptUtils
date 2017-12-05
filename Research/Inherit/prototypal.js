@@ -2,7 +2,7 @@
  * Created by chainn on 2017/12/5.
  */
 
-//shallow copy
+//shallow copy, 存在共享的问题
 function object(o) {
     function F() {}
     F.prototype = o;

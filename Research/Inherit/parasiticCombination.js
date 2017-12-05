@@ -22,6 +22,7 @@ SuperType.prototype.sayName = function(){
     alert(this.name);
 };
 function SubType(name, age){
+    //避免引用类型属性共享的问题
     SuperType.call(this, name);
     this.age = age;
 }
@@ -29,3 +30,10 @@ inheritPrototype(SubType, SuperType);
 SubType.prototype.sayAge = function() {
     alert(this.age);
 }
+var subInstance = new SubType('Rose');
+var subInstance2 = new SubType('Ben');
+subInstance.colors.push('black')
+subInstance2.colors.push('white')
+
+console.log('subInstance.colors', subInstance.colors)//[ 'red', 'blue', 'green', 'black' ]
+console.log('subInstance2.colors', subInstance2.colors)//[ 'red', 'blue', 'green', 'white' ]
