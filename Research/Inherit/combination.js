@@ -27,7 +27,7 @@ SubType.prototype.getWeight = function () {
 var subInstance = new SubType('Rose');
 var subInstance2 = new SubType('Ben');
 subInstance.courses.push('Math', 'English')//[ 'Math', 'English' ]
-subInstance2.courses.push('Physics', 'English')
+subInstance2.courses.push('Physics', 'English')//[ 'Physics', 'English' ]
 
 /**
  * SubType {
