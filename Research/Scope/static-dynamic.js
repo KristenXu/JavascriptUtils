@@ -26,7 +26,7 @@ function checkscope(){
     }
     return f();
 }
-checkscope();
+checkscope();//local scope  JavaScript 采用的是词法作用域，函数的作用域在函数定义的时候就决定了。
 
 //eg3:
 
@@ -38,6 +38,6 @@ function checkscope2(){
     }
     return f();
 }
-checkscope2();
+checkscope2();//local scope  JavaScript 采用的是词法作用域，函数的作用域在函数定义的时候就决定了。
 
 
