@@ -5,6 +5,12 @@ var deepCopy = function (obj) {
   if (cons === RegExp)
     return obj;
 
+  if (obj instanceof Date) {
+      var copy = new Date();
+      copy.setTime(obj.getTime());
+      return copy;
+  }
+
   var copy = cons();
   for (var key in obj) {
     if(!obj.hasOwnProperty(key)){
